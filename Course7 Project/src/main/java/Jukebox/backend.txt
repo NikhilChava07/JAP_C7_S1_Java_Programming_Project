@@ -1,0 +1,212 @@
+********************************************************************************************************************
+mysql> create database Project;
+Query OK, 1 row affected (0.01 sec)
+********************************************************************************************************************
+mysql> use Project
+Database changed
+
+mysql> create table authentication
+    -> (
+    -> username varchar(50) primary key,
+    -> password varchar(50) not null,
+    -> name varchar(50) not null,
+    -> mobileNo Bigint not null
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc authentication;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(50) | NO   | PRI | NULL    |       |
+| password | varchar(50) | NO   |     | NULL    |       |
+| name     | varchar(50) | NO   |     | NULL    |       |
+| mobileNo | bigint      | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+********************************************************************************************************************
+mysql> create table songs
+    -> (
+    -> songId int(4) zerofill auto_increment primary key,
+    -> songName varchar(50) not null,
+    -> artist varchar(50) not null,
+    -> duration varchar(10) not null,
+    -> albumName varchar(50) not null,
+    -> genre varchar(50) not null,
+    -> source varchar(50) not null
+    -> );
+Query OK, 0 rows affected, 2 warnings (0.03 sec)
+
+mysql> desc songs;
++-----------+--------------------------+------+-----+---------+----------------+
+| Field     | Type                     | Null | Key | Default | Extra          |
++-----------+--------------------------+------+-----+---------+----------------+
+| songId    | int(4) unsigned zerofill | NO   | PRI | NULL    | auto_increment |
+| songName  | varchar(50)              | NO   |     | NULL    |                |
+| artist    | varchar(50)              | NO   |     | NULL    |                |
+| duration  | varchar(10)              | NO   |     | NULL    |                |
+| albumName | varchar(50)              | NO   |     | NULL    |                |
+| genre     | varchar(50)              | NO   |     | NULL    |                |
+| source    | varchar(50)              | NO   |     | NULL    |                |
++-----------+--------------------------+------+-----+---------+----------------+
+7 rows in set (0.01 sec)
+********************************************************************************************************************
+mysql> insert into songs(songName,artist,duration,albumName,genre,source) values('Aagadu','Shankar Mahadevan','4:09','Aagadu','Intro','Aagadu.wav');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into songs(songName,artist,duration,albumName,genre,source) values('Athadu','Manisharma','4:57','Athadu','Intro','Athadu.wav');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into songs(songName,artist,duration,albumName,genre,source) values('Guruvaram','Rahul Nambiar','4:24','Dookudu','melody','Guruvaram.wav');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into songs(songName,artist,duration,albumName,genre,source) values('Kalaavathi','Sid Sriram','3:59','Sarkaru Vaari Paata','melody','Kalaavathi.wav');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into songs(songName,artist,duration,albumName,genre,source) values('Nee Dookudu','Shankar Mahadevan','3:48','Dookudu','intro','Nee Dookudu.wav');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into songs(songName,artist,duration,albumName,genre,source) values('Penny','Nakash Aziz','4:47','Sarkaru Vaari Paata','intro','Penny.wav');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into songs(songName,artist,duration,albumName,genre,source) values('Sir Osthara','Thaman S','3:57','BusinessMan','Romantic','Sir Osthara.wav');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into songs(songName,artist,duration,albumName,genre,source) values('Who are you','DSP','4:53','1 Nenokkadine','Rock','Who Are You.wav');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into songs(songName,artist,duration,albumName,genre,source) values('Yem cheddaam','Ranjith','4:28','SVSC','Intro','Yem Cheddaam.wav');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into songs(songName,artist,duration,albumName,genre,source) values('You are my love','DSP','4:34','1 Nenokkadine','Melody','You Are My Love.wav');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from songs;
++--------+-----------------+-------------------+----------+---------------------+----------+---------------------+
+| songId | songName        | artist            | duration | albumName           | genre    | source              |
++--------+-----------------+-------------------+----------+---------------------+----------+---------------------+
+|   0001 | Aagadu          | Shankar Mahadevan | 4:09     | Aagadu              | Intro    | Aagadu.wav          |
+|   0002 | Athadu          | Manisharma        | 4:57     | Athadu              | Intro    | Athadu.wav          |
+|   0003 | Guruvaram       | Rahul Nambiar     | 4:24     | Dookudu             | melody   | Guruvaram.wav       |
+|   0004 | Kalaavathi      | Sid Sriram        | 3:59     | Sarkaru Vaari Paata | melody   | Kalaavathi.wav      |
+|   0005 | Nee Dookudu     | Shankar Mahadevan | 3:48     | Dookudu             | intro    | Nee Dookudu.wav     |
+|   0006 | Penny           | Nakash Aziz       | 4:47     | Sarkaru Vaari Paata | intro    | Penny.wav           |
+|   0007 | Sir Osthara     | Thaman S          | 3:57     | BusinessMan         | Romantic | Sir Osthara.wav     |
+|   0008 | Who are you     | DSP               | 4:53     | 1 Nenokkadine       | Rock     | Who Are You.wav     |
+|   0009 | Yem cheddaam    | Ranjith           | 4:28     | SVSC                | Intro    | Yem Cheddaam.wav    |
+|   0010 | You are my love | DSP               | 4:34     | 1 Nenokkadine       | Melody   | You Are My Love.wav |
++--------+-----------------+-------------------+----------+---------------------+----------+---------------------+
+10 rows in set (0.00 sec)
+********************************************************************************************************************
+mysql> create table podcasts(episodeId varchar(10) primary key,podcastName varchar(50) not null,episodeName varchar(50) not null,artist varchar(50) not null,duration varchar(10) not null,genre varchar(50) not null,source varchar(50) not null);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc podcasts
+    -> ;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| episodeId   | varchar(10) | NO   | PRI | NULL    |       |
+| podcastName | varchar(50) | NO   |     | NULL    |       |
+| episodeName | varchar(50) | NO   |     | NULL    |       |
+| artist      | varchar(50) | NO   |     | NULL    |       |
+| duration    | varchar(10) | NO   |     | NULL    |       |
+| genre       | varchar(50) | NO   |     | NULL    |       |
+| source      | varchar(50) | NO   |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+7 rows in set (0.02 sec)
+********************************************************************************************************************
+mysql> create table podcasts(podcastId varchar(5),podcastName varchar(50) not null,episodeId varchar(5),episodeName varchar(50) not null,celebrity varchar(50) not null,duration varchar(10) not null,datePublished varchar(50) not null,source varchar(50) not null,PRIMARY KEY (podcastId, episodeId));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc podcasts
+    -> ;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| podcastId     | varchar(5)  | NO   | PRI | NULL    |       |
+| podcastName   | varchar(50) | NO   |     | NULL    |       |
+| episodeId     | varchar(5)  | NO   | PRI | NULL    |       |
+| episodeName   | varchar(50) | NO   |     | NULL    |       |
+| celebrity     | varchar(50) | NO   |     | NULL    |       |
+| duration      | varchar(10) | NO   |     | NULL    |       |
+| datePublished | varchar(50) | NO   |     | NULL    |       |
+| source        | varchar(50) | NO   |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+8 rows in set (0.02 sec)
+
+mysql> insert into podcasts values('P1','PuriTalks','E1','Being Strong','Puri Jagan','4:17','12/02/2019','Being Strong.wav');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into podcasts values('P1','PuriTalks','E2','Practice','Puri Jagan','4:02','15/02/2019','Practice.wav');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into podcasts values('P1','PuriTalks','E3','Teacher','Puri Jagan','4:34','19/02/2019','Teacher.wav');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into podcasts values('P2','Ramuism','E1','Journey','RamGopal Varma','4:30','20/05/2022','Journey.wav');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into podcasts values('P2','Ramuism','E2','Blessings','RamGopal Varma','5:13','20/04/2021','Blessings.wav');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into podcasts values('P2','Ramuism','E3','Questioning Everything','RamGopal Varma','4:35','20/05/2021','Questioning Everything.wav');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into podcasts values('P3','MouliSpeaks','E1','Reverse Age','SS Rajamouli','4:18','15/11/2017','Reverse Age.wav');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from podcasts;
++-----------+-------------+-----------+------------------------+----------------+----------+---------------+----------------------------+
+| podcastId | podcastName | episodeId | episodeName            | celebrity      | duration | datePublished | source                     |
++-----------+-------------+-----------+------------------------+----------------+----------+---------------+----------------------------+
+| P1        | PuriTalks   | E1        | Being Strong           | Puri Jagan     | 4:17     | 12/02/2019    | Being Strong.wav           |
+| P1        | PuriTalks   | E2        | Practice               | Puri Jagan     | 4:02     | 15/02/2019    | Practice.wav               |
+| P1        | PuriTalks   | E3        | Teacher                | Puri Jagan     | 4:34     | 19/02/2019    | Teacher.wav                |
+| P2        | Ramuism     | E1        | Journey                | RamGopal Varma | 4:30     | 20/05/2022    | Journey.wav                |
+| P2        | Ramuism     | E2        | Blessings              | RamGopal Varma | 5:13     | 20/04/2021    | Blessings.wav              |
+| P2        | Ramuism     | E3        | Questioning Everything | RamGopal Varma | 4:35     | 20/05/2021    | Questioning Everything.wav |
+| P3        | MouliSpeaks | E1        | Reverse Age            | SS Rajamouli   | 4:18     | 15/11/2017    | Reverse Age.wav            |
++-----------+-------------+-----------+------------------------+----------------+----------+---------------+----------------------------+
+7 rows in set (0.00 sec)
+********************************************************************************************************************
+mysql> create table PlaylistTab
+    -> (
+    -> playlistId int(4) zerofill auto_increment primary key,
+    -> playListName varchar(50) not null,
+    -> username varchar(50) not null,
+    -> foreign key(username) references authentication(username),
+    -> unique (username,playListName)
+    -> );
+Query OK, 0 rows affected, 2 warnings (0.04 sec)
+
+mysql> desc playlistTab
+    -> ;
++--------------+--------------------------+------+-----+---------+----------------+
+| Field        | Type                     | Null | Key | Default | Extra          |
++--------------+--------------------------+------+-----+---------+----------------+
+| playlistId   | int(4) unsigned zerofill | NO   | PRI | NULL    | auto_increment |
+| playListName | varchar(50)              | NO   |     | NULL    |                |
+| username     | varchar(50)              | NO   | MUL | NULL    |                |
++--------------+--------------------------+------+-----+---------+----------------+
+3 rows in set (0.01 sec)
+********************************************************************************************************************
+mysql> create table Playlist
+    -> (
+    -> playlistId int(4) zerofill not null,
+    -> foreign key(playlistId) references playlistTab(playlistId),
+    -> audioType varchar(50) not null,
+    -> audioId varchar(50) not null
+    -> );
+Query OK, 0 rows affected, 2 warnings (0.10 sec)
+
+mysql> desc playlist;
++------------+--------------------------+------+-----+---------+-------+
+| Field      | Type                     | Null | Key | Default | Extra |
++------------+--------------------------+------+-----+---------+-------+
+| playlistId | int(4) unsigned zerofill | NO   | MUL | NULL    |       |
+| audioType  | varchar(50)              | NO   |     | NULL    |       |
+| audioId    | varchar(50)              | NO   |     | NULL    |       |
++------------+--------------------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+********************************************************************************************************************

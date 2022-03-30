@@ -1,0 +1,46 @@
+The Jukebox Challenge
+
+• Let us design a modern jukebox that allows users to listen to music and podcasts that are live
+streamed. There are a lot of tracks and episodes on the jukebox. So, whether you're behind the wheel, working out, partying or relaxing, the right music or podcast is always at your fingertips. You can also browse through the artists and celebrities or create a playlist and just sit back.
+In this challenge, you will design a modern jukebox that contains songs by various artists and
+podcasts by celebrities.
+• Project scope is divided into 4 tasks to be done over 24 hours.
+
+Task # 1
+
+This jukebox must contain a catalog of songs by various artists.
+1.You need to add different genres of songs into the catalog.
+2.The catalog can be categorized based on the artist, genre or name of the album.
+3.The home page of the jukebox should display all the songs available in the catalog.
+4.The user must be able to search for music based on any of the categories mentioned in point 2.
+5.Once a category is specified, an alphabetical search can be offered to the user to locate the music they are looking for.
+
+
+Task # 2
+
+1.The modern jukebox should allow users to create a catalog of podcasts and to live-stream music of various artists.
+2.The homepage of the jukebox must display podcasts by celebrities.
+3.Allow a user to search for a podcast by celebrity or find the date on which the podcast was published.
+
+
+Task # 3
+
+1.This jukebox should allow a user to either create a playlist of songs or podcasts, or a combination of the two.
+2.Allow a user to add a song, a particular album or a podcast to the created playlist.
+3.The user should be able to create multiple playlists and view the contents of the playlists.
+
+
+Task #4
+
+1.The design of the modern jukebox is now completed.
+2.A user should now be able to play songs from the created playlists.
+3.Display all the songs in the playlist along with the name of the song, album name (if any), and the duration of the song in a tabular format.
+4.The user must be able to play any song or podcast from the playlist.
+5.The song playing displays the time remaining (in mm:ss format) and presents the list of songs that have been queued up for playing subsequently.
+6.The user must be able to perform reverse, forward, pause, resume and shuffle or loop play of the songs in the playlist.(Hint: Use the AudiolnputStream class to play the songs.)
+
+
+Instructions for Project Submission
+• There is no Boilerplate URL for this practice challenge.
+• Create a new repository named JAP_C7_S1_Java_Programming_Project on Gitlab.
+• Push the solution into the repository.
